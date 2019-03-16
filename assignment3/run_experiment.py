@@ -88,18 +88,18 @@ if __name__ == '__main__':
 
     datasets = []
     dataset1_details = {
-            'data': loader.StatlogVehicleData(verbose=verbose, seed=seed),
-            'name': 'statlog_vehicle',
-            'readable_name': 'Statlog Vehicle',
-            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [1.0],
-                               'NN__hidden_layer_sizes': [(36, 36)], 'NN__learning_rate_init': [0.016]}
+            'data': loader.DrugConsumptionData(verbose=verbose, seed=seed),
+            'name': 'cannabis_consumption',
+            'readable_name': 'Cannabis Consumption',
+            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [3.1622776601683795],
+                               'NN__hidden_layer_sizes': [(6, 6, 6)], 'NN__learning_rate_init': [0.128]}
         }
     dataset2_details = {
-            'data': loader.HTRU2Data(verbose=verbose, seed=seed),
-            'name': 'htru2',
-            'readable_name': 'HTRU2',
-            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [1.0],
-                               'NN__hidden_layer_sizes': [(36, 36)], 'NN__learning_rate_init': [0.016]}
+            'data': loader.PenDigitData(verbose=verbose, seed=seed),
+            'name': 'pen_digit',
+            'readable_name': 'Pen Digit',
+            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [0.0001],
+                               'NN__hidden_layer_sizes': [(32,)], 'NN__learning_rate_init': [0.032]}
     }
     if args.dataset1:
         datasets.append(dataset1_details)
