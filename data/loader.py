@@ -106,6 +106,11 @@ class DataLoader(ABC):
         self.log("Binary? {}", self.binary)
         self.log("Balanced? {}", self.balanced)
 
+        self.build_train_test_split(test_size=0.1)
+        sampled = pd.concat([pd.DataFrame(self.testing_x), pd.DataFrame(self.testing_y)], axis=1)
+
+        sampled.to_csv('data/{}_sampled.csv'.format(self.data_name()), index=False, header=False)
+
     def scale_standard(self):
         self.features = StandardScaler().fit_transform(self.features)
         if self.training_x is not None:
